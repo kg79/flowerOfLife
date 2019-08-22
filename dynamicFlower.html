@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin:0;
+                background:black;
+
+
+            }
+            canvas {
+                margin:auto;
+                background:white;
+
+            }
+        </style>
+    </head>
+    <body>
+       <canvas id='can'></canvas> 
+    </body>
+    <script>
+const can = document.getElementById('can');
+const ctx = can.getContext('2d');
+
+   can.width = window.innerWidth; 
+   can.height = window.innerHeight;
+
+   let startX = 0, startY = 0;
+
+    let r = window.innerWidth/9;
+
+while (startY < window.innerHeight + r) {
+    for (let i = 0; i < 9; i++) {
+        ctx.beginPath()
+        ctx.arc(startX, startY, r, 0, Math.PI*2)
+        ctx.stroke()
+        ctx.closePath()
+        startX += (r/2 * Math.sqrt(3)) * 2
+    }
+    startX = 0;
+    startY += r;
+   
+}
+
+startX = Math.sqrt(3) * (r/2);
+startY = 0 - r/2;
+
+while (startX < window.innerWidth+r && startY < window.innerHeight+r) {
+
+    for (let i = 0; i < 9; i++) {
+        ctx.beginPath()
+        ctx.arc(startX, startY, r, 0, Math.PI*2)
+        ctx.stroke()
+        ctx.closePath()
+        startX += (Math.sqrt(3) * (r/2)) * 2
+    }
+    startX = Math.sqrt(3) * (r/2);
+    startY += r;
+}
+let x = 0 - Math.sqrt(3) * (r/2), y = r/2;
+    while (y < window.innerHeight+r) {
+        ctx.beginPath()
+        ctx.arc(x, y, r, 0, Math.PI*2)
+        ctx.stroke()
+        ctx.closePath()
+        y += r;
+    }
+    </script>
+</html>

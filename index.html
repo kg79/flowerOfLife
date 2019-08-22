@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin:0;
+                background:black;
+
+
+            }
+            canvas {
+                margin:auto;
+                background:white;
+
+            }
+        </style>
+    </head>
+    <body>
+       <canvas id='can'></canvas> 
+    </body>
+    <script>
+//    window.onmouseover = () => location.reload()
+const can = document.getElementById('can');
+const ctx = can.getContext('2d');
+
+let height = window.innerHeight-4, width = window.innerWidth-4;
+let fullCircle = Math.PI * 2;
+
+can.height = height;
+can.width = width;
+
+let radius = width/9;
+let x = 0, y = 0;
+let iterations = 10;
+let shortLeg = radius/2;
+let longLeg = shortLeg * Math.sqrt(3);
+
+
+
+
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, fullCircle)
+        ctx.stroke();
+        ctx.closePath();
+  
+    
+
+        ctx.beginPath();
+        ctx.arc(radius/2 * Math.sqrt(3), radius/2, radius, 0, fullCircle)
+        ctx.stroke();
+        ctx.closePath();
+     
+
+
+
+
+    </script>
+<

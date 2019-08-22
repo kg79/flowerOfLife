@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            body {
+                background:#000;
+                margin:0;
+                }
+            #can {
+                border:solid 2px white;
+                margin:0;
+            }
+            </style>
+    </head>
+    <body>
+            <canvas id='can' height='800' width='1600'></canvas>
+    </body>
+    <script>
+        
+       const can = document.getElementById('can')
+       const ctx = can.getContext('2d');
+       
+       ctx.strokeStyle = 'violet';
+       ctx.lineWidth = '1.5'
+       
+function fuck() {
+       let r = 60;
+       let iterations = 30;
+       let long = (1/2 * r) * Math.sqrt(3)
+    
+
+       let x = 0, y = 0; 
+
+    for (let I = -100; I < iterations; I++) {
+
+       for (let i = 0; i < iterations; i++) {
+           
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.closePath() 
+               x += long;
+               y += .5*r;
+        }
+        x = 0;
+        y = r * I;
+    }
+}
+fuck()
+ 
+function shit() {
+    let iterations = 30;
+    let r = 60;
+    let smallLeg = .5*r;
+    let height = 800;
+    let longLeg = (1/2 * r) * Math.sqrt(3)
+    let startY = 0, x = longLeg, y = height;
+
+/*
+    for (let i = 0; i < times; i++) {
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(x, y)
+        ctx.stroke();
+        ctx.closePath();
+        startY -= r;
+        y = smallLeg * i;
+        x = long * i;
+    }*/
+    for (let i = 0; i < iterations; i++) {
+            ctx.beginPath();
+            ctx.moveTo(x, startY);
+            ctx.lineTo(x, y)
+            ctx.stroke();
+            ctx.closePath();
+            x += longLeg;
+    }
+}
+shit()
+
+function diagonal() {
+    let iterations = 20;
+    let r = 60;
+    let shortLeg = r/2;
+    let longLeg = shortLeg * Math.sqrt(3);
+
+        let startX = 0, startY = 0 - (r * 13), x = longLeg * 30, y = (shortLeg * 30) - (r * 13);
+        for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(x, y)
+                ctx.stroke();
+                ctx.closePath();
+                startY += r;
+                y += r; 
+        }
+    }
+    diagonal();
+
+    function upDiagonal() {
+    let iterations = 23;
+    let r = 60;
+    let shortLeg = r/2;
+    let longLeg = shortLeg * Math.sqrt(3);
+
+        let startX = 0, startY = r, x = longLeg * 2, y = 0;
+
+        for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(x, y)
+                ctx.stroke();
+                ctx.closePath();
+                startY += r;
+                x += longLeg*2;
+
+        }
+    }
+    upDiagonal()
+/*kkunction first() {
+
+       let x = 0, y = 0; 
+            for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.closePath() 
+                x += ((.5*r) * Math.sqrt(3)) * 2;
+            }
+
+   }
+   first()
+
+  function second() {
+       let x = (.5*r) * Math.sqrt(3), y = r * .5;
+            for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.closePath() 
+                x += ((.5*r) * Math.sqrt(3)) * 2;
+                
+            }
+
+   }
+   second()
+      
+
+   function third() {
+       let x = 0, y = r;
+            for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.closePath() 
+                x += ((.5*r) * Math.sqrt(3)) * 2;
+
+                
+            }
+
+   }
+   third()
+/*
+      function third() {
+       let x = 0, y = r + r;
+            for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.closePath() 
+                x += long * 2
+            }
+
+   }
+  third()
+  
+function fourth() {
+       let x = long, y = r * .5;
+            for (let i = 0; i < iterations; i++) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.stroke()
+                ctx.closePath() 
+                x += long * 2;
+            }
+
+   }
+ fourth()*/
+         </script>
+</html>
